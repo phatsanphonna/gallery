@@ -21,11 +21,11 @@ const breakpoints: Breakpoint[] = [
   { size: 1024, columns: 3 }
 ]
 
-const Home: NextPage = () => {
+const HomePage: NextPage = () => {
   return (
     <>
       <SEO />
-      <div className='w-3/5 mx-auto h-screen'>
+      <div className='w-11/12 md:w-3/5 mx-auto h-screen'>
         <Plock breakpoints={breakpoints}>
           {pictures.map((id, index) => (
             <ImageCard id={id} key={index} />
@@ -36,4 +36,4 @@ const Home: NextPage = () => {
   )
 }
 
-export default Home
+export default HomePage

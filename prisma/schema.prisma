@@ -12,7 +12,8 @@ datasource db {
 
 model picture {
   id       String   @id @default(auto()) @map("_id") @db.ObjectId
-  fileId   String
+  fileId   String   @unique
   tags     String[]
   location String
+  metadata String
 }

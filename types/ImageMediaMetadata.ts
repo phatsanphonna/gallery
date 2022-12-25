@@ -1,5 +1,4 @@
 export interface ImageMediaMetadata {
-
     width: number,
     height: number,
     rotation: number,

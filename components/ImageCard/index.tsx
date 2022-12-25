@@ -3,6 +3,7 @@ import { useState } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowDown, faLocationPin } from '@fortawesome/free-solid-svg-icons'
 import styles from './ImageCard.module.css'
+import Link from 'next/link'
 
 type Props = {
   id: string
@@ -12,7 +13,7 @@ const ImageCard: React.FC<Props> = ({ id }) => {
   const [mouseOver, setMouseOver] = useState(false)
 
   return (
-    <>
+    <Link href={`/photos/${id}`}>
       <figure
         onMouseOver={() => setMouseOver(true)}
         onMouseOut={() => setMouseOver(false)}
@@ -51,7 +52,7 @@ const ImageCard: React.FC<Props> = ({ id }) => {
           quality={50}
         />
       </figure>
-    </>
+    </Link>
   )
 }
 
