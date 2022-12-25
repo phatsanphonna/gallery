@@ -47,7 +47,8 @@ const ImageCard: React.FC<Props> = ({ id }) => {
             position: 'relative'
           }}
           width={480}
-          height={1000}
+          height={100}
+          quality={50}
         />
       </figure>
     </>
