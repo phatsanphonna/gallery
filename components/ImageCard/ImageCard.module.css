@@ -1,0 +1,16 @@
+.card_hover {
+  @apply h-full w-full;
+  @apply absolute float-left z-50;
+  @apply p-4;
+  @apply bg-black bg-opacity-20;
+  @apply text-white;
+}
+
+.card_hover__header {
+  @apply flex flex-row justify-between items-center;
+}
+
+.card_hover__header p {
+  @apply flex flex-row items-start justify-center gap-2;
+  @apply hover:underline hover:cursor-pointer;
+}

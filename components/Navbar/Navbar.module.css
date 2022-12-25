@@ -1,0 +1,21 @@
+.navbar {
+  @apply h-20;
+  @apply mb-4;
+
+  @apply bg-white;
+  @apply shadow;
+}
+
+.navbar_container {
+  @apply h-full w-11/12 mx-auto;
+  @apply flex flex-row justify-between items-center;
+}
+
+.search_box {
+  @apply hidden md:flex flex-row justify-center items-center;
+  @apply w-80 h-1/2;
+  @apply px-3 gap-2;
+  @apply rounded;
+
+  @apply bg-gray-100;
+}
