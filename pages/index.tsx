@@ -8,7 +8,8 @@ const pictures = [
   '1Nx2aczsbsXNtLJqJT5KVCKBwu7hijKLr',
   '1wo1HE0KfFWiaFJCgiuP68d34wXe1SJ9f',
   '13a401Rop4jeP3mK7ga2qWVJIMxjmHZmL',
-  '12_pEc_eBn-e1Gk-Gj-apv3cq8_5KAW5Y'
+  '12_pEc_eBn-e1Gk-Gj-apv3cq8_5KAW5Y',
+  '1sucLami5IopWB5Z2UNpocs8-tL4HpL1u'
 ]
 
 const breakpoints: Breakpoint[] = [
