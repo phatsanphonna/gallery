@@ -6,12 +6,14 @@ import styles from './ImageCard.module.css'
 import Link from 'next/link'
 
 type Props = {
-  id: string
+  id: string,
+  fileId: string,
+  location: string
 }
 
-const ImageCard: React.FC<Props> = ({ id }) => {
+const ImageCard: React.FC<Props> = ({ id, fileId, location }) => {
   const [mouseOver, setMouseOver] = useState(false)
-
+  
   return (
     <Link href={`/photos/${id}`}>
       <figure
@@ -24,12 +26,12 @@ const ImageCard: React.FC<Props> = ({ id }) => {
             <div className={styles.card_hover__header}>
               <p>
                 <FontAwesomeIcon icon={faLocationPin} />
-                <span>Siam Scape</span>
+                <span>{location}</span>
               </p>
               <a
                 download={true}
                 className='w-8 h-8 text-black bg-slate-100 grid place-items-center rounded'
-                href={`https://drive.google.com/uc?export=download&id=${id}`}
+                href={`https://drive.google.com/uc?export=download&id=${fileId}`}
               >
                 <FontAwesomeIcon icon={faArrowDown} />
               </a>
@@ -37,8 +39,8 @@ const ImageCard: React.FC<Props> = ({ id }) => {
           </div>
         )}
         <Image
-          src={`https://drive.google.com/uc?export=view&id=${id}`}
-          blurDataURL={`https://drive.google.com/uc?export=view&id=${id}`}
+          src={`https://drive.google.com/uc?export=view&id=${fileId}`}
+          blurDataURL={`https://drive.google.com/uc?export=view&id=${fileId}`}
           placeholder='blur'
           referrerPolicy="no-referrer"
           alt='Image'

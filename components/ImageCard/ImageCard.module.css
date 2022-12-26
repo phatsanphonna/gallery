@@ -11,6 +11,6 @@
 }
 
 .card_hover__header p {
-  @apply flex flex-row items-start justify-center gap-2;
+  @apply flex flex-row items-center justify-center gap-2;
   @apply hover:underline hover:cursor-pointer;
 }

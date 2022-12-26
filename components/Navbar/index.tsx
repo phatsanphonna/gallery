@@ -11,7 +11,7 @@ const Navbar: React.FC = () => {
           <h1 className='font-bold text-xl select-none'>Phatsanphon Gallery</h1>
         </Link>
         <div className={styles.search_box}>
-          <FontAwesomeIcon icon={faSearch} className='text-gray-500' />
+          <FontAwesomeIcon icon={faSearch} className='text-gray-500' width={20} height={20} />
           <input
             type="search"
             className='w-full h-full bg-transparent'

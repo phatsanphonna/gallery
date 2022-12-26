@@ -10,10 +10,20 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model picture {
-  id       String   @id @default(auto()) @map("_id") @db.ObjectId
-  fileId   String   @unique
+model Photo {
+  id       String    @id @default(auto()) @map("_id") @db.ObjectId
+  fileId   String    @unique
   tags     String[]
   location String
-  metadata String
+  dateTime DateTime?
+  metadata String?
+  Album    Album[]   @relation(fields: [albumId], references: [id])
+  albumId  String[]  @db.ObjectId
+}
+
+model Album {
+  id       String   @id @default(auto()) @map("_id") @db.ObjectId
+  title    String
+  photos   Photo[]  @relation(fields: [photosId], references: [id])
+  photosId String[] @db.ObjectId
 }
