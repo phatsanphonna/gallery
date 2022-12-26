@@ -44,6 +44,9 @@ export const getServerSideProps: GetServerSideProps = async () => {
       id: true,
       location: true,
       dateTime: true
+    },
+    orderBy: {
+      dateTime: 'desc'
     }
   })
 
