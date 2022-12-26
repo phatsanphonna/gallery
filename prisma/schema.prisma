@@ -11,14 +11,18 @@ datasource db {
 }
 
 model Photo {
-  id       String    @id @default(auto()) @map("_id") @db.ObjectId
-  fileId   String    @unique
-  tags     String[]
+  id     String   @id @default(auto()) @map("_id") @db.ObjectId
+  fileId String   @unique
+  tags   String[]
+
   location String
-  dateTime DateTime?
+  events   String?
+  model    String?
+  dateTime String?
   metadata String?
-  Album    Album[]   @relation(fields: [albumId], references: [id])
-  albumId  String[]  @db.ObjectId
+
+  Album   Album[]  @relation(fields: [albumId], references: [id])
+  albumId String[] @db.ObjectId
 }
 
 model Album {

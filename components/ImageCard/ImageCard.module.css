@@ -7,10 +7,9 @@
 }
 
 .card_hover__header {
-  @apply flex flex-row justify-between items-center;
+  @apply flex flex-col justify-center items-start;
 }
 
 .card_hover__header p {
   @apply flex flex-row items-center justify-center gap-2;
-  @apply hover:underline hover:cursor-pointer;
 }

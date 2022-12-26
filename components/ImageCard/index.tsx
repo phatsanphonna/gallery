@@ -1,60 +1,59 @@
 import Image from 'next/image'
 import { useState } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faArrowDown, faLocationPin } from '@fortawesome/free-solid-svg-icons'
+import { faClock, faLocationPin } from '@fortawesome/free-solid-svg-icons'
 import styles from './ImageCard.module.css'
 import Link from 'next/link'
+import moment from 'moment'
 
 type Props = {
   id: string,
   fileId: string,
-  location: string
+  location: string,
+  dateTime: string | null
 }
 
-const ImageCard: React.FC<Props> = ({ id, fileId, location }) => {
+const ImageCard: React.FC<Props> = ({ id, fileId, location, dateTime }) => {
   const [mouseOver, setMouseOver] = useState(false)
-  
+
   return (
-    <Link href={`/photos/${id}`}>
-      <figure
-        onMouseOver={() => setMouseOver(true)}
-        onMouseOut={() => setMouseOver(false)}
-        className='relative'
-      >
-        {mouseOver && (
+    <figure
+      onMouseOver={() => setMouseOver(true)}
+      onMouseOut={() => setMouseOver(false)}
+      className='relative'
+    >
+      {mouseOver && (
+        <Link href={`/photos/${id}`}>
           <div className={styles.card_hover}>
             <div className={styles.card_hover__header}>
               <p>
                 <FontAwesomeIcon icon={faLocationPin} />
                 <span>{location}</span>
               </p>
-              <a
-                download={true}
-                className='w-8 h-8 text-black bg-slate-100 grid place-items-center rounded'
-                href={`https://drive.google.com/uc?export=download&id=${fileId}`}
-              >
-                <FontAwesomeIcon icon={faArrowDown} />
-              </a>
+              <p>
+                <FontAwesomeIcon icon={faClock} />
+                <span>{moment(dateTime).format('DD/MM/YYYY')}</span>
+              </p>
             </div>
           </div>
-        )}
-        <Image
-          src={`https://drive.google.com/uc?export=view&id=${fileId}`}
-          blurDataURL={`https://drive.google.com/uc?export=view&id=${fileId}`}
-          placeholder='blur'
-          referrerPolicy="no-referrer"
-          alt='Image'
-          style={{
-            height: 'auto',
-            objectFit: 'contain',
-            position: 'relative'
-          }}
-          width={480}
-          height={100}
-          quality={50}
-        />
-      </figure>
-    </Link>
+        </Link>
+      )}
+      <Image
+        src={`https://drive.google.com/uc?export=view&id=${fileId}`}
+        blurDataURL={`https://drive.google.com/uc?export=view&id=${fileId}`}
+        placeholder='blur'
+        referrerPolicy="no-referrer"
+        alt='Image'
+        style={{
+          height: 'auto',
+          objectFit: 'contain',
+          position: 'relative'
+        }}
+        width={480}
+        height={100}
+        quality={50}
+      />
+    </figure>
   )
 }
 

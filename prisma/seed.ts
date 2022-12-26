@@ -27,7 +27,8 @@ const pictures = [
   '12_pEc_eBn-e1Gk-Gj-apv3cq8_5KAW5Y',
   '1sucLami5IopWB5Z2UNpocs8-tL4HpL1u',
   '1ztrSda9xUpBIINu8hnSeyujLew8zzvVC',
-  '16dyRkyrFN4HdOWIc8b6wFfuqNWu7OJT0'
+  '16dyRkyrFN4HdOWIc8b6wFfuqNWu7OJT0',
+  '1s1-9SdUjTip3s5QaGKSMSbu5yjMaVY7o'
 ]
 
 async function main() {
@@ -41,7 +42,7 @@ async function main() {
       const dateTime = moment(
         data.imageMediaMetadata?.time,
         'YYYY:MM:DD hh:mm:ss'
-      ).toISOString()
+      ).utcOffset('+0700').toISOString()
 
       const pic = await prisma.photo.upsert({
         where: { fileId },
