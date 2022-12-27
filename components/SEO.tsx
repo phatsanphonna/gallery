@@ -1,15 +1,18 @@
 import Head from 'next/head'
 
 type Props = {
-  title?: string
+  title?: string,
+  fileId?: string
 }
 
 const SEO: React.FC<Props> = ({
-  title = 'Phatsanphon Gallery'
+  title = 'Phatsanphon Gallery',
+  fileId
 }) => {
   return (
     <Head>
       <title>{title}</title>
+      {fileId && <meta property='og:image' content={`https://drive.google.com/thumbnail?&sz=w540&id=${fileId}`} />}
     </Head>
   )
 }

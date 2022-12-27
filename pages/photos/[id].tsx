@@ -15,11 +15,14 @@ const PhotosByIdPage: NextPage<Props> = ({ picture }) => {
 
   return (
     <>
-      <SEO title={
-        picture.model
-          ? `${picture.model} @${picture.location} - Phatsanphon Gallery`
-          : `@${picture.location} - Phatsanphon Gallery`
-      } />
+      <SEO
+        title={
+          picture.model
+            ? `${picture.model} @${picture.location} - Phatsanphon Gallery`
+            : `@${picture.location} - Phatsanphon Gallery`
+        }
+        fileId={picture.fileId}
+      />
       <div
         style={{
           backgroundImage: `linear-gradient(to bottom,#00000018,#000000f2), url(https://drive.google.com/uc?export=view&id=${picture.fileId})`

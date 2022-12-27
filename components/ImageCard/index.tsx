@@ -39,8 +39,8 @@ const ImageCard: React.FC<Props> = ({ id, fileId, location, dateTime }) => {
         </Link>
       )}
       <Image
-        src={`https://drive.google.com/uc?export=view&id=${fileId}`}
-        blurDataURL={`https://drive.google.com/uc?export=view&id=${fileId}`}
+        src={`https://drive.google.com/thumbnail?&sz=w540&id=${fileId}`}
+        blurDataURL={`https://drive.google.com/thumbnail?&sz=w540&id=${fileId}`}
         placeholder='blur'
         referrerPolicy="no-referrer"
         alt='Image'
