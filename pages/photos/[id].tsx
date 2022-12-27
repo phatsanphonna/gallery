@@ -1,4 +1,4 @@
-import { GetStaticPaths, GetStaticProps, NextPage } from 'next'
+import { GetServerSideProps, NextPage } from 'next'
 import { prisma } from '../../utils/prisma'
 import { Photo } from '@prisma/client'
 import moment from 'moment'
@@ -94,7 +94,7 @@ const PhotosByIdPage: NextPage<Props> = ({ picture }) => {
   )
 }
 
-export const getStaticProps: GetStaticProps = async ({ params }) => {
+export const getServerSideProps: GetServerSideProps = async ({ params }) => {
   const picture = await prisma.photo.findUnique({
     where: {
       id: params!.id as string
@@ -109,21 +109,4 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   }
 }
 
-
-export const getStaticPaths: GetStaticPaths = async () => {
-  const queryPaths = await prisma.photo.findMany({
-    select: {
-      id: true
-    }
-  })
-
-  const paths = queryPaths.map((path) => ({ params: { id: path.id } }))
-
-  await prisma.$disconnect()
-
-  return {
-    paths: paths,
-    fallback: true,
-  }
-}
 export default PhotosByIdPage
