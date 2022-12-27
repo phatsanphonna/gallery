@@ -1,5 +1,6 @@
 import Image from 'next/image'
 import styles from './ImageDisplay.module.css'
+
 type Props = {
   fileId: string
 }

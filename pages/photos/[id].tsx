@@ -3,7 +3,7 @@ import { prisma } from '../../utils/prisma'
 import { Photo } from '@prisma/client'
 import moment from 'moment'
 import { ImageMediaMetadata } from '../../types/ImageMediaMetadata'
-import { Fraction } from 'fractional'
+const { Fraction } = require('fractional')
 import SEO from '../../components/SEO'
 
 type Props = {
