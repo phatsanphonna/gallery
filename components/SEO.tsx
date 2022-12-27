@@ -12,7 +12,7 @@ const SEO: React.FC<Props> = ({
   return (
     <Head>
       <title>{title}</title>
-      {fileId && <meta property='og:image' content={`https://drive.google.com/thumbnail?&sz=w540&id=${fileId}`} />}
+      {fileId && <meta property='og:image' content={`https://drive.google.com/thumbnail?&sz=w1200&id=${fileId}`} />}
     </Head>
   )
 }
