@@ -1,0 +1,13 @@
+.figure_container {
+  @apply h-1/2;
+}
+.figure_container > div {
+  position: unset !important;
+}
+
+.figure_container__image {
+  object-fit: contain;
+  width: 100% !important;
+  position: relative !important;
+  height: unset !important;
+}

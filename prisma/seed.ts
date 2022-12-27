@@ -19,16 +19,8 @@ const auth = new google.auth.GoogleAuth({
 const drive = google.drive({ auth, version: 'v3' })
 
 const pictures = [
-  '1Z7jl9L-9wBY-FlJDvKDjC9lTtlwnw0mN',
-  '1cB4YcQK1byKWKw63hbPR4SwJAARhWPzQ',
-  '1Nx2aczsbsXNtLJqJT5KVCKBwu7hijKLr',
-  '1wo1HE0KfFWiaFJCgiuP68d34wXe1SJ9f',
-  '13a401Rop4jeP3mK7ga2qWVJIMxjmHZmL',
-  '12_pEc_eBn-e1Gk-Gj-apv3cq8_5KAW5Y',
-  '1sucLami5IopWB5Z2UNpocs8-tL4HpL1u',
-  '1ztrSda9xUpBIINu8hnSeyujLew8zzvVC',
-  '16dyRkyrFN4HdOWIc8b6wFfuqNWu7OJT0',
-  '1s1-9SdUjTip3s5QaGKSMSbu5yjMaVY7o'
+  '1s77p7zyJABDTXdAmmCe_b8li7tPbCGJv',
+  '1ZW4MEDVlyZACS0CCOFq0SfHIOADeBAt6'
 ]
 
 async function main() {
@@ -50,12 +42,13 @@ async function main() {
           fileId,
           location: 'SIAMSCAPE',
           metadata: JSON.stringify(data.imageMediaMetadata),
-          dateTime
+          dateTime,
+          events: 'Cosnatsu Xmas'
         },
         update: {
           location: 'SIAMSCAPE',
           metadata: JSON.stringify(data.imageMediaMetadata),
-          dateTime
+          dateTime,
         }
       })
 

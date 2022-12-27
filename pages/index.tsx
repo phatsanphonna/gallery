@@ -4,6 +4,7 @@ import ImageCard from '../components/ImageCard'
 import SEO from '../components/SEO'
 import { Photo } from '@prisma/client'
 import { prisma } from '../utils/prisma'
+import Layout from '../components/Layout'
 
 const breakpoints: Breakpoint[] = [
   { size: 640, columns: 1 },
@@ -13,14 +14,14 @@ const breakpoints: Breakpoint[] = [
 ]
 
 type Props = {
-  pictures: Photo[] 
+  pictures: Photo[]
 }
 const HomePage: NextPage<Props> = ({ pictures }) => {
   return (
     <>
       <SEO />
 
-      <div className='w-11/12 md:w-3/5 lg:w-2/3 mx-auto min-h-screen mb-2'>
+      <Layout>
         <Plock breakpoints={breakpoints}>
           {pictures.map((pic, index) => (
             <ImageCard
@@ -32,7 +33,7 @@ const HomePage: NextPage<Props> = ({ pictures }) => {
             />
           ))}
         </Plock>
-      </div>
+      </Layout>
     </>
   )
 }
@@ -49,6 +50,8 @@ export const getServerSideProps: GetServerSideProps = async () => {
       dateTime: 'desc'
     }
   })
+
+  await prisma.$disconnect()
 
   return {
     props: {

@@ -1,11 +1,15 @@
 import Head from 'next/head'
 
-type Props = {}
+type Props = {
+  title: string
+}
 
-const SEO: React.FC = (props: Props) => {
+const SEO: React.FC<Props> = ({
+  title = 'Phatsanphon Gallery'
+}) => {
   return (
     <Head>
-      <title>Phatsanphon Gallery</title>
+      <title>{title}</title>
     </Head>
   )
 }

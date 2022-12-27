@@ -1,6 +1,7 @@
 .navbar {
-  @apply h-20;
-  @apply mb-4;
+  @apply fixed top-0;
+  z-index: 99999999;
+  @apply h-20 w-screen;
 
   @apply bg-white;
   @apply shadow;
