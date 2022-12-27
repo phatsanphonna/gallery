@@ -1,7 +1,7 @@
 import Head from 'next/head'
 
 type Props = {
-  title: string
+  title?: string
 }
 
 const SEO: React.FC<Props> = ({
