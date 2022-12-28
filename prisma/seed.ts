@@ -1,4 +1,4 @@
-import { Photo, PrismaClient } from '@prisma/client'
+import { PrismaClient } from '@prisma/client'
 import { google } from 'googleapis'
 import moment from 'moment'
 
@@ -24,9 +24,7 @@ const pictures = [
   '1OKNAchtaDF1_N5ue4jtD6zxcDNMfGFbU'
 ]
 
-async function main() {
-  const seedList: Photo[] = []
-
+async function addPhotos() {
   for (let fileId of pictures) {
     drive.files.get({
       fileId: fileId,
@@ -37,7 +35,7 @@ async function main() {
         'YYYY:MM:DD hh:mm:ss'
       ).utcOffset('+0700').toISOString()
 
-      const pic = await prisma.photo.upsert({
+      await prisma.photo.upsert({
         where: { fileId },
         create: {
           fileId,
@@ -50,21 +48,32 @@ async function main() {
           dateTime,
         }
       })
-
-      seedList.push(pic)
     })
   }
-  console.log(seedList);
-
-
 }
 
-main()
-  .then(async () => {
-    await prisma.$disconnect()
+async function createAlbums() {
+  await prisma.album.create({
+    data: {
+      title: 'Nero from Black Covers',
+      photosId: [
+        '63a938b67e6a304dadcf12c7',
+        '63ab0ffbf9a1353bf23ab3aa'
+      ]
+    }
   })
-  .catch(async (e) => {
-    console.error(e)
-    await prisma.$disconnect()
-    process.exit(1)
-  })
+}
+
+function main(fn: () => any) {
+  fn()
+    .then(async () => {
+      await prisma.$disconnect()
+    })
+    .catch(async (e: any) => {
+      console.error(e)
+      await prisma.$disconnect()
+      process.exit(1)
+    })
+}
+
+main(createAlbums)
