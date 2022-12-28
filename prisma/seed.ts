@@ -19,8 +19,9 @@ const auth = new google.auth.GoogleAuth({
 const drive = google.drive({ auth, version: 'v3' })
 
 const pictures = [
-  '1s77p7zyJABDTXdAmmCe_b8li7tPbCGJv',
-  '1ZW4MEDVlyZACS0CCOFq0SfHIOADeBAt6'
+  '1LH7bXvl_wqAMYfNgFXKrdAmmIZpZwG5U',
+  '1CiZ_eszTjh8it5F5b8rFI7tOKAyVWeJ9',
+  '1OKNAchtaDF1_N5ue4jtD6zxcDNMfGFbU'
 ]
 
 async function main() {
@@ -40,13 +41,11 @@ async function main() {
         where: { fileId },
         create: {
           fileId,
-          location: 'SIAMSCAPE',
+          location: 'BTS National Stadium',
           metadata: JSON.stringify(data.imageMediaMetadata),
           dateTime,
-          events: 'Cosnatsu Xmas'
         },
         update: {
-          location: 'SIAMSCAPE',
           metadata: JSON.stringify(data.imageMediaMetadata),
           dateTime,
         }
