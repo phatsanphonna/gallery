@@ -32,7 +32,7 @@ const ImageCard: React.FC<Props> = ({ id, fileId, location, dateTime }) => {
               </p>
               <p>
                 <FontAwesomeIcon icon={faClock} />
-                <span>{moment(dateTime).format('DD/MM/YYYY')}</span>
+                <span>{moment(dateTime).fromNow()}</span>
               </p>
             </div>
           </div>

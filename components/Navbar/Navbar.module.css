@@ -14,7 +14,7 @@
 
 .search_box {
   @apply hidden md:flex flex-row justify-center items-center;
-  @apply w-80 h-1/2;
+  @apply w-1/2 h-1/2;
   @apply px-3 gap-2;
   @apply rounded;
 
